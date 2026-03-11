@@ -86,6 +86,7 @@ Password: 123
 (Pastikan untuk mengganti password default ini setelah aplikasi di-deploy / di-hosting).
 
 Struktur Direktori Utama
+
 SIMA/
 │
 ├── action_handlers/     # File PHP pemroses logika (Login, Register, dll)
