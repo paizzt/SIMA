@@ -86,7 +86,6 @@ Password: 123
 (Pastikan untuk mengganti password default ini setelah aplikasi di-deploy / di-hosting).
 
 Struktur Direktori Utama
-Plaintext
 SIMA/
 │
 ├── action_handlers/     # File PHP pemroses logika (Login, Register, dll)
@@ -103,5 +102,6 @@ SIMA/
 ├── db_sima.sql          # File Dump Database MySQL
 ├── index.php            # Halaman Utama (Landing Page)
 └── login.php            # Halaman Login Multi-Role
-📝 Lisensi
+
+ Lisensi
 Proyek ini dikembangkan untuk keperluan akademik / manajemen internal asrama. Dilarang memperjualbelikan ulang sistem ini tanpa izin pengembang.
