@@ -90,10 +90,15 @@ Struktur Direktori Utama
 SIMA/
 │
 ├── action_handlers/     # File PHP pemroses logika (Login, Register, dll)
+
 ├── assets/              # File CSS, JS, dan Gambar Statis (Logo, dll)
+
 ├── config/              # Konfigurasi koneksi database
+
 ├── functions/           # Fungsi helper (Auth checkers, Algoritma alokasi)
+
 ├── layouts/             # Komponen UI Reusable (Header, Footer, Sidebar, Navbar)
+
 ├── uploads/             # Folder penyimpanan file upload (KTP, Bukti Bayar, Laporan)
 
 ├── views/               # Antarmuka Pengguna (UI)
