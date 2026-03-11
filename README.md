@@ -90,19 +90,33 @@ Struktur Direktori Utama
 SIMA/
 │
 ├── action_handlers/     # File PHP pemroses logika (Login, Register, dll)
+
 ├── assets/              # File CSS, JS, dan Gambar Statis (Logo, dll)
+
 ├── config/              # Konfigurasi koneksi database
+
 ├── functions/           # Fungsi helper (Auth checkers, Algoritma alokasi)
+
 ├── layouts/             # Komponen UI Reusable (Header, Footer, Sidebar, Navbar)
+
 ├── uploads/             # Folder penyimpanan file upload (KTP, Bukti Bayar, Laporan)
+
 ├── views/               # Antarmuka Pengguna (UI)
+
 │   ├── admin/           # Halaman khusus Admin
+
 │   ├── landing/         # Halaman untuk Guest / Publik
+
 │   └── penghuni/        # Halaman khusus Penghuni Asrama
+
 │
+
 ├── db_sima.sql          # File Dump Database MySQL
+
 ├── index.php            # Halaman Utama (Landing Page)
+
 └── login.php            # Halaman Login Multi-Role
+
 
  Lisensi
 Proyek ini dikembangkan untuk keperluan akademik / manajemen internal asrama. Dilarang memperjualbelikan ulang sistem ini tanpa izin pengembang.
