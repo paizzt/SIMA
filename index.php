@@ -149,27 +149,55 @@
                 <h2 class="fw-bold display-6">Kenyamanan Prioritas Kami</h2>
             </div>
              <div class="row g-4">
-                <div class="col-md-4">
+                
+                <div class="col-md-4 col-sm-6">
                     <div class="feature-card">
-                        <div class="icon-box"><i class="bi bi-wifi"></i></div>
-                        <h5 class="fw-bold mb-3">Internet Cepat</h5>
-                        <p class="text-muted mb-0">Akses WiFi dedicated di setiap lantai untuk menunjang kebutuhan belajar online dan tugas.</p>
+                        <div class="icon-box"><i class="bi bi-door-closed"></i></div>
+                        <h5 class="fw-bold mb-3">Lemari</h5>
+                        <p class="text-muted mb-0">Lemari pakaian pribadi yang luas dan aman untuk menyimpan barang bawaan Anda.</p>
                     </div>
                 </div>
-                <div class="col-md-4">
+                
+                <div class="col-md-4 col-sm-6">
                     <div class="feature-card">
-                        <div class="icon-box"><i class="bi bi-shield-lock"></i></div>
-                        <h5 class="fw-bold mb-3">Keamanan 24 Jam</h5>
-                        <p class="text-muted mb-0">Dilengkapi CCTV di setiap sudut dan petugas keamanan yang berjaga siang malam.</p>
+                        <div class="icon-box"><i class="bi bi-moon-stars"></i></div>
+                        <h5 class="fw-bold mb-3">Ranjang Susun & Kasur</h5>
+                        <p class="text-muted mb-0">Ranjang susun kokoh dilengkapi kasur yang nyaman untuk istirahat optimal.</p>
                     </div>
                 </div>
-                <div class="col-md-4">
+                
+                <div class="col-md-4 col-sm-6">
+                    <div class="feature-card">
+                        <div class="icon-box"><i class="bi bi-droplet"></i></div>
+                        <h5 class="fw-bold mb-3">Kamar Mandi Dalam</h5>
+                        <p class="text-muted mb-0">Privasi dan kebersihan lebih terjamin dengan fasilitas kamar mandi di dalam setiap kamar.</p>
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-sm-6">
                     <div class="feature-card">
                         <div class="icon-box"><i class="bi bi-book"></i></div>
-                        <h5 class="fw-bold mb-3">Ruang Belajar</h5>
-                        <p class="text-muted mb-0">Area komunal yang tenang dan nyaman untuk diskusi kelompok atau belajar mandiri.</p>
+                        <h5 class="fw-bold mb-3">Meja & Kursi Belajar</h5>
+                        <p class="text-muted mb-0">Fasilitas belajar yang ergonomis di setiap kamar untuk mendukung fokus akademik Anda.</p>
                     </div>
                 </div>
+
+                <div class="col-md-4 col-sm-6">
+                    <div class="feature-card">
+                        <div class="icon-box"><i class="bi bi-lightning-charge"></i></div>
+                        <h5 class="fw-bold mb-3">Free Listrik & Air</h5>
+                        <p class="text-muted mb-0">Biaya sewa sudah mencakup pemakaian listrik dan air bersih sepuasnya tanpa biaya tambahan.</p>
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-sm-6">
+                    <div class="feature-card">
+                        <div class="icon-box"><i class="bi bi-camera-video"></i></div>
+                        <h5 class="fw-bold mb-3">CCTV</h5>
+                        <p class="text-muted mb-0">Pengawasan keamanan non-stop dengan kamera CCTV 24 jam di berbagai area strategis asrama.</p>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>

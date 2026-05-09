@@ -78,7 +78,7 @@ $total_income = $d_total['total'] ? $d_total['total'] : 0;
                     </div>
                 </div>
             </div>
-            </div>
+        </div>
 
         <div class="card shadow-sm border-0 rounded-4 overflow-hidden">
             <div class="card-header bg-white border-bottom py-3">
@@ -161,6 +161,12 @@ $total_income = $d_total['total'] ? $d_total['total'] : 0;
                                                     <i class="bi bi-check-lg"></i> Validasi
                                                 </button>
                                             </form>
+                                            
+                                        <?php elseif($row['status'] == 'verified' || $row['status'] == 'lunas'): ?>
+                                            <a href="cetak_kwitansi.php?id=<?php echo $row['id']; ?>" target="_blank" class="btn btn-sm btn-outline-success rounded-pill px-3" title="Cetak Kwitansi">
+                                                <i class="bi bi-printer-fill me-1"></i> Cetak Kwitansi
+                                            </a>
+                                            
                                         <?php else: ?>
                                             <span class="text-muted small fst-italic"><i class="bi bi-lock-fill"></i> Selesai</span>
                                         <?php endif; ?>
@@ -220,7 +226,6 @@ $total_income = $d_total['total'] ? $d_total['total'] : 0;
         });
     }
 
-    // (Biarkan script notifikasi Toast yang sudah ada di bawah ini)
     const urlParams = new URLSearchParams(window.location.search);
     if(urlParams.get('msg') === 'updated'){
         const Toast = Swal.mixin({
@@ -239,26 +244,6 @@ $total_income = $d_total['total'] ? $d_total['total'] : 0;
             title: 'Status pembayaran berhasil diperbarui!'
         });
     }
-</script>
-    <script>
-        const urlParams = new URLSearchParams(window.location.search);
-        if(urlParams.get('msg') === 'updated'){
-            const Toast = Swal.mixin({
-                toast: true,
-                position: 'top-end',
-                showConfirmButton: false,
-                timer: 3000,
-                timerProgressBar: true,
-                didOpen: (toast) => {
-                    toast.addEventListener('mouseenter', Swal.stopTimer)
-                    toast.addEventListener('mouseleave', Swal.resumeTimer)
-                }
-            });
-            Toast.fire({
-                icon: 'success',
-                title: 'Status pembayaran berhasil diperbarui!'
-            });
-        }
     </script>
 </body>
 </html>

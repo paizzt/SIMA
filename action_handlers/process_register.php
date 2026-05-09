@@ -28,7 +28,6 @@ if (isset($_POST['daftar'])) {
     // 2. Cek Email Ganda
     $cek = mysqli_query($conn, "SELECT email FROM pendaftaran WHERE email = '$email'");
     if (mysqli_num_rows($cek) > 0) {
-        // POPUP EMAIL SUDAH ADA
         echo "<script>
             Swal.fire({
                 title: 'Gagal Mendaftar!',
@@ -43,17 +42,32 @@ if (isset($_POST['daftar'])) {
         exit();
     }
 
-    // 3. Upload Foto
+    // 3. Upload Foto (Pisahkan logika KTP dan KTM karena KTM sekarang opsional)
     $upload_dir = '../uploads/dokumen_persyaratan/';
     if (!file_exists($upload_dir)) { mkdir($upload_dir, 0777, true); }
 
-    $foto_ktp = uniqid() . '_ktp_' . $_FILES['foto_ktp']['name'];
-    $foto_ktm = uniqid() . '_ktm_' . $_FILES['foto_ktm']['name'];
+    $foto_ktp = '';
+    $foto_ktm = ''; // Default kosong
 
-    $tmp_ktp = $_FILES['foto_ktp']['tmp_name'];
-    $tmp_ktm = $_FILES['foto_ktm']['tmp_name'];
+    // Proses KTP (WAJIB)
+    if (isset($_FILES['foto_ktp']) && $_FILES['foto_ktp']['error'] == 0) {
+        $foto_ktp = uniqid() . '_ktp_' . $_FILES['foto_ktp']['name'];
+        $tmp_ktp = $_FILES['foto_ktp']['tmp_name'];
+        if (!move_uploaded_file($tmp_ktp, $upload_dir . $foto_ktp)) {
+            $foto_ktp = ''; // Gagal pindah file
+        }
+    }
 
-    if (move_uploaded_file($tmp_ktp, $upload_dir . $foto_ktp) && move_uploaded_file($tmp_ktm, $upload_dir . $foto_ktm)) {
+    // Proses KTM (OPSIONAL)
+    // Cek apakah ada file yang dikirim dan tidak ada error
+    if (isset($_FILES['foto_ktm']) && $_FILES['foto_ktm']['error'] == 0 && $_FILES['foto_ktm']['name'] != '') {
+        $foto_ktm = uniqid() . '_ktm_' . $_FILES['foto_ktm']['name'];
+        $tmp_ktm = $_FILES['foto_ktm']['tmp_name'];
+        move_uploaded_file($tmp_ktm, $upload_dir . $foto_ktm);
+    }
+
+    // Pastikan KTP berhasil diupload (Karena KTP sifatnya wajib)
+    if ($foto_ktp != '') {
         
         // 4. Insert ke Database
         $query = "INSERT INTO pendaftaran 
@@ -62,7 +76,6 @@ if (isset($_POST['daftar'])) {
                   ('$nama', '$gender', '$hp', '$email', '$alamat', '$tanggal_survei', '$jurusan', '$password', '$foto_ktp', '$foto_ktm', 'pending')";
 
         if (mysqli_query($conn, $query)) {
-            // POPUP SUKSES - PERUBAHAN DI SINI
             echo "<script>
                 Swal.fire({
                     title: 'Pendaftaran Berhasil!',
@@ -73,13 +86,11 @@ if (isset($_POST['daftar'])) {
                     allowOutsideClick: false
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        // Kembali ke index.php di folder utama (Landing Page)
                         window.location = '../index.php';
                     }
                 });
             </script>";
         } else {
-            // POPUP ERROR DB
             echo "<script>
                 Swal.fire({
                     title: 'Terjadi Kesalahan!',
@@ -90,11 +101,11 @@ if (isset($_POST['daftar'])) {
             </script>";
         }
     } else {
-        // POPUP GAGAL UPLOAD
+        // Jika Foto KTP gagal/kosong
         echo "<script>
             Swal.fire({
                 title: 'Gagal Upload!',
-                text: 'Terjadi masalah saat mengunggah foto. Pastikan ukuran tidak terlalu besar.',
+                text: 'Foto KTP wajib diunggah dan tidak boleh melebihi batas ukuran.',
                 icon: 'warning',
                 confirmButtonColor: '#d33'
             }).then(() => { window.history.back(); });
